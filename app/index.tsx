@@ -4,8 +4,30 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
 import CustomButton from "@/components/CustomButton";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import { getUsers } from "@/lib/fetchers/users";
+import { IUsers } from "@/lib/types/user";
 
 export default function App() {
+  const [users, setUsers] = useState<IUsers[]>([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await getUsers();
+        console.log(response);
+        if (response.length > 0) {
+          setUsers([response[0]]);
+        } else {
+          setUsers([]);
+        }
+      } catch (error) {
+        console.error("Errore nel caricamento degli utenti:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -40,7 +62,11 @@ export default function App() {
             title={"Continue with Email"}
             handlePress={() => router.push("/sign-in")}
             containerStyles={"w-full mt-7"}
-          ></CustomButton>
+          />
+
+          <Text>
+            {users[0].name} - {users[0].lastname}
+          </Text>
         </View>
         <StatusBar backgroundColor="#161622" style="light"></StatusBar>
       </ScrollView>
