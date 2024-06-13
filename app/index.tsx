@@ -5,8 +5,6 @@ import { images } from "../constants";
 import CustomButton from "@/components/CustomButton";
 import { router } from "expo-router";
 
-console.log(process.env.NEXT_PUBLIC_DIRECTUS_URL);
-
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full">
