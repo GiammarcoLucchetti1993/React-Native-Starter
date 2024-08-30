@@ -2,32 +2,17 @@ import { StatusBar } from "expo-status-bar";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@/components/custom-button";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
-import { getUsers } from "@/lib/fetchers/users";
-import { IUsers } from "@/lib/types/user";
+import "../lib/i18n/i18n.config";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import LanguageModal from "@/components/language-modal";
 
 export default function App() {
-  const [users, setUsers] = useState<IUsers[]>([]);
+  const { t } = useTranslation("home");
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await getUsers();
-        console.log(response);
-        if (response.length > 0) {
-          setUsers([response[0]]);
-        } else {
-          setUsers([]);
-        }
-      } catch (error) {
-        console.error("Errore nel caricamento degli utenti:", error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -44,29 +29,30 @@ export default function App() {
           />
           <View className="relative mt-5">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless Possibilities with{" "}
-              <Text className="text-secondary-200">Aora</Text>
+              {t("title")} <Text className="text-secondary-200">Aora</Text>
             </Text>
-            <Image
-              source={images.path}
-              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
-              resizeMode="contain"
-            />
           </View>
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Where creativity meets innovation: embark on a journey of limitless
-            exploration with Aora
+            {t("content")}
           </Text>
 
           <CustomButton
-            title={"Continue with Email"}
+            title={t("buttonLabel")}
             handlePress={() => router.push("/sign-in")}
             containerStyles={"w-full mt-7"}
           />
 
-          <Text>
-            {users[0].name} - {users[0].lastname}
-          </Text>
+          <CustomButton
+            title={t("buttonLabelTranslation")}
+            handlePress={() => {
+              setModalVisible(!modalVisible);
+            }}
+            containerStyles={"w-full mt-7"}
+          />
+          <LanguageModal
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+          />
         </View>
         <StatusBar backgroundColor="#161622" style="light"></StatusBar>
       </ScrollView>

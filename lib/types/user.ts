@@ -1,7 +1,10 @@
-type BaseUsers = {
+export type User = {
   id: string;
-  name: string;
-  lastname: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  description: string;
+  role: string;
+  status: string;
+  avatar?: string;
 };
-
-export type IUsers = BaseUsers;

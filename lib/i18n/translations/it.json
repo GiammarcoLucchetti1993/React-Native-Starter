@@ -1,0 +1,22 @@
+{
+  "home": {
+    "title": "Scopri Infinite Possibilità con",
+    "content": "Dove la creatività incontra l'innovazione: intraprendi un viaggio di esplorazione senza limiti con Aora",
+    "buttonLabel": "Continua con email",
+    "buttonLabelTranslation": "Cambia Lingua"
+  },
+  "signin": {
+    "title": "Accedi ad Aora",
+    "signin": "Accedi",
+    "content": "Non hai un account?",
+    "signup": "Registrati",
+    "placeholderemail": "Inserisci Email",
+    "placeholderpassword": "Inserisci Password"
+  },
+  "modal": {
+    "title": "Seleziona la Lingua"
+  },
+  "tabhome": {
+    "welcome": "Bentornato"
+  }
+}

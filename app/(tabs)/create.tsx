@@ -1,11 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 
 const Create = () => {
   return (
-    <View>
-      <Text>Create</Text>
-    </View>
+    <SafeAreaView className="px-4 bg-primary h-full">
+      <Text className="text-2xl text-white font-psemibold mt-2">Create</Text>
+    </SafeAreaView>
   );
 };
 

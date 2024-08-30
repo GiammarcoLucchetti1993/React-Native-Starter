@@ -1,0 +1,22 @@
+{
+  "home": {
+    "title": "Discover Endless Possibilities with",
+    "content": "Where creativity meets innovation: embark on a journey of limitless exploration with Aora",
+    "buttonLabel": "Continue with email",
+    "buttonLabelTranslation": "Change Language"
+  },
+  "signin": {
+    "title": "Log in to Aora",
+    "signin": "Sign In",
+    "content": "Don't have account?",
+    "signup": "Sign Up",
+    "placeholderemail": "Enter Your Email",
+    "placeholderpassword": "Enter Your Password"
+  },
+  "modal": {
+    "title": "Select Language"
+  },
+  "tabhome": {
+    "welcome": "Welcome Back"
+  }
+}

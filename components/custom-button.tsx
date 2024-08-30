@@ -1,6 +1,6 @@
 import { Text, Pressable } from "react-native";
 import React from "react";
-import { isLoaded } from "expo-font";
+import { cn } from "@/utils/cn";
 
 interface ButtonProps {
   title: string;
@@ -26,11 +26,15 @@ const CustomButton = ({
           opacity: pressed ? 0.7 : 1,
         },
       ]}
-      className={`bg-secondary rounded-xl min-h-[62px] justify-center items-center ${containerStyles} ${
-        isLoading ? "opacity-50" : ""
-      }`}
+      className={cn(
+        "bg-secondary rounded-xl min-h-[62px] justify-center items-center",
+        containerStyles,
+        {
+          "opacity-50": isLoading,
+        }
+      )}
     >
-      <Text className={`text-primary font-psemibold text-lg ${textStyle}`}>
+      <Text className={cn("text-primary font-psemibold text-lg", textStyle)}>
         {title}
       </Text>
     </Pressable>

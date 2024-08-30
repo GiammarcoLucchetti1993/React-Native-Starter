@@ -8,6 +8,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: "portrait",
   scheme: "myapp",
   platforms: ["ios", "android", "web"],
-  plugins: ["expo-secure-store"],
+  plugins: ["expo-secure-store", "expo-localization"],
   // altre configurazioni necessarie
 });

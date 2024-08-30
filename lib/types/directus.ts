@@ -1,8 +1,10 @@
 import { NestedKeyOf } from "./common";
-import { IUsers } from "./user";
+import { INews } from "./news";
+import { User } from "./user";
 
 export type DirectusCollections = {
-  users: IUsers[];
+  users: User[];
+  news: INews[];
 };
 
 export type DirectusFilters<T> = Partial<
